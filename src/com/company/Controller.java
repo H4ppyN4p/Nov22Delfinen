@@ -10,6 +10,7 @@ public class Controller {
     private Scanner scanner = new Scanner(System.in);
     private UserInterface ui = new UserInterface();
     private MemberDatabase mdb = new MemberDatabase();
+    private Subscription sub = new Subscription();
 
     public Controller() throws FileNotFoundException {
     }
@@ -36,7 +37,7 @@ public class Controller {
                     handleSubscription();
                     break;
                 case "5":
-                    viewAllSubscriptions();
+                    viewExpectedIncome();
                     break;
                 case "6":
                     viewAllResults();
@@ -94,11 +95,10 @@ public class Controller {
     }
 
     public void handleSubscription() {
-
     }
 
-    public void viewAllSubscriptions() {
-
+    public void viewExpectedIncome() {
+        System.out.println(sub.expectedIncome(mdb.getMembers(), mdb.getCompetitiveMembers()));
     }
 
     public void viewAllResults() {

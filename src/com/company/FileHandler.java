@@ -75,7 +75,9 @@ public class FileHandler {
 
                 CompetitiveMember member = new CompetitiveMember(newMember[0], newMember[1], newMember[2],
                         Boolean.parseBoolean(newMember[4]), Boolean.parseBoolean(newMember[5]),
-                        Boolean.parseBoolean(newMember[6]), Boolean.parseBoolean(newMember[7]));
+                        Boolean.parseBoolean(newMember[6]), Boolean.parseBoolean(newMember[7]),
+                        newMember[8], newMember[9],
+                        newMember[10], newMember[11]);
                 listOfAllCompMembers.add(member);
             }
 

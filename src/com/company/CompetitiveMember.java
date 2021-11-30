@@ -9,10 +9,10 @@ public class CompetitiveMember extends Member {
     private boolean isBackStrokeSwimmer;
     private boolean isBreastStrokeSwimmer;
 
-    private double bestLapCrawl = 0;
-    private double bestLapButterfly = 0;
-    private double bestLapBackCrawl = 0;
-    private double bestLapBreast = 0;
+    private String bestLapCrawl = "0";
+    private String bestLapButterfly = "0";
+    private String bestLapBackCrawl = "0";
+    private String bestLapBreast = "0";
 
     private boolean isMemberOfTeam;
 
@@ -31,8 +31,8 @@ public class CompetitiveMember extends Member {
     public CompetitiveMember(String memberName, String memberAge, String subscriptionType,
                              boolean isCrawlSwimmer, boolean isButterflySwimmer,
                              boolean isBackStrokeSwimmer, boolean isBreastStrokeSwimmer,
-                             double bestLapBackCrawl, double bestLapButterfly,
-                             double bestLapBreast, double bestLapCrawl) {
+                             String bestLapBackCrawl, String bestLapButterfly,
+                             String bestLapBreast, String bestLapCrawl) {
         super(memberName, memberAge, subscriptionType);
         this.isCrawlSwimmer = isCrawlSwimmer;
         this.isButterflySwimmer = isButterflySwimmer;
@@ -49,6 +49,6 @@ public class CompetitiveMember extends Member {
     @Override
     public String toString() {
         return super.toString() + ";" + isCrawlSwimmer + ";" + isButterflySwimmer + ";" + isBackStrokeSwimmer + ";" +
-                isBreastStrokeSwimmer;
+                isBreastStrokeSwimmer + ";" + bestLapCrawl + ";" + bestLapButterfly + ";" + bestLapBackCrawl  + ";" + bestLapBreast;
     }
 }

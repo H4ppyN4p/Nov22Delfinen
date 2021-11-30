@@ -31,13 +31,15 @@ public class MemberDatabase {
             members.add(member);
             fh.writeToFile(member);
 
-            Subscription subscription = new Subscription(member);
+            /*Subscription subscription = new Subscription(member);
             subscriptions.add(subscription);
+
+             */
         } else {
             CompetitiveMember competitiveMember = new CompetitiveMember(memberInfo.get(0),
                     memberInfo.get(1), memberInfo.get(2), Boolean.parseBoolean(memberInfo.get(3)),
                     Boolean.parseBoolean(memberInfo.get(4)), Boolean.parseBoolean(memberInfo.get(5)),
-                    Boolean.parseBoolean(memberInfo.get(6)), 0, 0, 0, 0);
+                    Boolean.parseBoolean(memberInfo.get(6)));
             competitiveMembers.add(competitiveMember);
 
             // tilføjer competitive member til det team der passer med members aldersgruppe
@@ -49,8 +51,9 @@ public class MemberDatabase {
 
             fh.writeToFileComp(competitiveMember);
 
-            Subscription subscription = new Subscription(competitiveMember);
+            /*Subscription subscription = new Subscription(competitiveMember);
             subscriptions.add(subscription);
+             */
         }
 
     }
