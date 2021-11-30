@@ -37,7 +37,7 @@ public class MemberDatabase {
             CompetitiveMember competitiveMember = new CompetitiveMember(memberInfo.get(0),
                     memberInfo.get(1), memberInfo.get(2), Boolean.parseBoolean(memberInfo.get(3)),
                     Boolean.parseBoolean(memberInfo.get(4)), Boolean.parseBoolean(memberInfo.get(5)),
-                    Boolean.parseBoolean(memberInfo.get(6)));
+                    Boolean.parseBoolean(memberInfo.get(6)), 0, 0, 0, 0);
             competitiveMembers.add(competitiveMember);
 
             // tilføjer competitive member til det team der passer med members aldersgruppe
