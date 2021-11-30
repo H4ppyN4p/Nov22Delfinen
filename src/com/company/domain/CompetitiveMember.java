@@ -1,4 +1,4 @@
-package com.company;
+package com.company.domain;
 
 public class CompetitiveMember extends Member {
 

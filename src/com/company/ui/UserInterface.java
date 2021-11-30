@@ -1,4 +1,6 @@
-package com.company;
+package com.company.ui;
+
+import com.company.domain.SubscriptionType;
 
 import java.util.ArrayList;
 import java.util.Scanner;

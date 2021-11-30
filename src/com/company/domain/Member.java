@@ -1,4 +1,6 @@
-package com.company;
+package com.company.domain;
+
+import com.company.domain.AgeGroup;
 
 public class Member {
 

@@ -1,4 +1,7 @@
-package com.company;
+package com.company.data;
+
+import com.company.domain.CompetitiveMember;
+import com.company.domain.Member;
 
 import java.io.File;
 import java.io.FileNotFoundException;

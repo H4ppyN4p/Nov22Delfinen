@@ -1,8 +1,9 @@
-package com.company;
+package com.company.data;
+
+import com.company.domain.Team;
+import com.company.domain.*;
 
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class MemberDatabase {
