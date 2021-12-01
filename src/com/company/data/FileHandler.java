@@ -44,7 +44,7 @@ public class FileHandler {
                 //Opret et Member object ud fra dataen i den linje
                 String[] newMember = line.split(";");
 
-                Member member = new Member(newMember[0], newMember[1], newMember[2]);
+                Member member = new Member(newMember[0], newMember[1], newMember[2], Boolean.parseBoolean(newMember[4]));
                 listOfAllMembers.add(member);
             }
 
@@ -79,8 +79,8 @@ public class FileHandler {
                 CompetitiveMember member = new CompetitiveMember(newMember[0], newMember[1], newMember[2],
                         Boolean.parseBoolean(newMember[4]), Boolean.parseBoolean(newMember[5]),
                         Boolean.parseBoolean(newMember[6]), Boolean.parseBoolean(newMember[7]),
-                        newMember[8], newMember[9],
-                        newMember[10], newMember[11]);
+                        Boolean.parseBoolean(newMember[8]), newMember[9], newMember[10],
+                        newMember[11], newMember[12]);
                 listOfAllCompMembers.add(member);
             }
 
