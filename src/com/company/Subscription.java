@@ -30,14 +30,14 @@ public class Subscription {
 
      */
 
-    public double expectedIncome(ArrayList<Member> listOfAllMembers, ArrayList<CompetitiveMember> listOfAllCompetetiveMembers) {
+    public double expectedIncome(ArrayList<Member> listOfAllMembers, ArrayList<CompetitiveMember> listOfAllCompetitiveMembers) {
         int juniorMembers = 0;
         int adultMembers = 0;
         int seniorMembers = 0;
         int passiveMembers = 0;
 
         ArrayList<Member> members = listOfAllMembers;
-        ArrayList<CompetitiveMember> competitiveMembers = listOfAllCompetetiveMembers;
+        ArrayList<CompetitiveMember> competitiveMembers = listOfAllCompetitiveMembers;
 
         for (int i = 0; i < members.size(); i++){
             if (members.get(i).getSubscriptonType().equals("youth")){
