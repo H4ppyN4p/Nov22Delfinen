@@ -1,4 +1,7 @@
-package com.company;
+package com.company.domain;
+
+import com.company.domain.AgeGroup;
+import com.company.domain.CompetitiveMember;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

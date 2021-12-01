@@ -1,4 +1,6 @@
-package com.company;
+package com.company.domain;
+
+import com.company.domain.AgeGroup;
 
 public class Member {
 
@@ -9,6 +11,9 @@ public class Member {
     //Svømme info
     private String subscriptionType;
     private AgeGroup ageGroup;
+
+    //Restance
+    private boolean hasPaidSubscription = true;
 
     public Member(String memberName, String memberAge, String subscriptionType) {
         this.memberName = memberName;
@@ -21,6 +26,22 @@ public class Member {
             this.ageGroup = AgeGroup.JUNIOR;
             this.memberAge = memberAge;
         }
+
+    }
+
+    public Member(String memberName, String memberAge, String subscriptionType, boolean hasPaidSubscription) {
+        this.memberName = memberName;
+        this.subscriptionType = subscriptionType;
+
+        if (Integer.parseInt(memberAge) >= 18) {
+            this.ageGroup = AgeGroup.SENIOR;
+            this.memberAge = memberAge;
+        } else {
+            this.ageGroup = AgeGroup.JUNIOR;
+            this.memberAge = memberAge;
+        }
+
+        this.hasPaidSubscription = hasPaidSubscription;
     }
 
     public AgeGroup getAgeGroup(){
@@ -37,6 +58,6 @@ public class Member {
 
     @Override
     public String toString() {
-        return memberName + ";" + memberAge + ";" + subscriptionType + ";" + ageGroup;
+        return memberName + ";" + memberAge + ";" + subscriptionType + ";" + ageGroup + ";" + hasPaidSubscription;
     }
 }

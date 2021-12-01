@@ -1,4 +1,4 @@
-package com.company;
+package com.company.domain;
 
 public class CompetitiveMember extends Member {
 
@@ -17,10 +17,10 @@ public class CompetitiveMember extends Member {
     private boolean isMemberOfTeam;
 
 
-    public CompetitiveMember(String memberName, String memberAge, String subscriptionType,
+    public CompetitiveMember(String memberName, String memberAge, String subscriptionType, boolean hasPaidSubscription,
                              boolean isCrawlSwimmer, boolean isButterflySwimmer,
                              boolean isBackStrokeSwimmer, boolean isBreastStrokeSwimmer) {
-        super(memberName, memberAge, subscriptionType);
+        super(memberName, memberAge, subscriptionType, hasPaidSubscription);
         this.isCrawlSwimmer = isCrawlSwimmer;
         this.isButterflySwimmer = isButterflySwimmer;
         this.isBackStrokeSwimmer = isBackStrokeSwimmer;
@@ -28,12 +28,12 @@ public class CompetitiveMember extends Member {
 
     }
 
-    public CompetitiveMember(String memberName, String memberAge, String subscriptionType,
+    public CompetitiveMember(String memberName, String memberAge, String subscriptionType, boolean hasPaidSubscription,
                              boolean isCrawlSwimmer, boolean isButterflySwimmer,
                              boolean isBackStrokeSwimmer, boolean isBreastStrokeSwimmer,
                              String bestLapBackCrawl, String bestLapButterfly,
                              String bestLapBreast, String bestLapCrawl) {
-        super(memberName, memberAge, subscriptionType);
+        super(memberName, memberAge, subscriptionType, hasPaidSubscription);
         this.isCrawlSwimmer = isCrawlSwimmer;
         this.isButterflySwimmer = isButterflySwimmer;
         this.isBackStrokeSwimmer = isBackStrokeSwimmer;

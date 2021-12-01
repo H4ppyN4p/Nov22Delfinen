@@ -1,8 +1,9 @@
-package com.company;
+package com.company.data;
+
+import com.company.domain.Team;
+import com.company.domain.*;
 
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class MemberDatabase {
@@ -37,11 +38,11 @@ public class MemberDatabase {
              */
         } else {
             CompetitiveMember competitiveMember = new CompetitiveMember(memberInfo.get(0),
-                    memberInfo.get(1), memberInfo.get(2), Boolean.parseBoolean(memberInfo.get(3)),
-                    Boolean.parseBoolean(memberInfo.get(4)), Boolean.parseBoolean(memberInfo.get(5)),
-                    Boolean.parseBoolean(memberInfo.get(6)));
+                    memberInfo.get(1), memberInfo.get(2), true, Boolean.parseBoolean(memberInfo.get(4)),
+                    Boolean.parseBoolean(memberInfo.get(5)), Boolean.parseBoolean(memberInfo.get(6)),
+                    Boolean.parseBoolean(memberInfo.get(7)));
             competitiveMembers.add(competitiveMember);
-
+    
             // tilføjer competitive member til det team der passer med members aldersgruppe
             if (Integer.parseInt(memberInfo.get(1)) < 18) {
                 juniorTeam.addTeamMember(competitiveMember);
