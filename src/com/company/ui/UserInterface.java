@@ -16,7 +16,7 @@ public class UserInterface {
                 1) Create new member  
                 2) View all members 
                 3) View teams
-                4) Handle subscription
+                4) View all members subscription status
                 5) View expected income from subscriptions
                 6) View all results
                 7) Delete member

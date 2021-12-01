@@ -24,6 +24,7 @@ public class MemberDatabase {
     }
 
 
+
     public void createMember() throws FileNotFoundException {
         Controller controller = new Controller();
         ArrayList<String> memberInfo = controller.createMember();
@@ -38,9 +39,9 @@ public class MemberDatabase {
              */
         } else {
             CompetitiveMember competitiveMember = new CompetitiveMember(memberInfo.get(0),
-                    memberInfo.get(1), memberInfo.get(2), Boolean.parseBoolean(memberInfo.get(3)),
-                    Boolean.parseBoolean(memberInfo.get(4)), Boolean.parseBoolean(memberInfo.get(5)),
-                    Boolean.parseBoolean(memberInfo.get(6)));
+                    memberInfo.get(1), memberInfo.get(2), true, Boolean.parseBoolean(memberInfo.get(4)),
+                    Boolean.parseBoolean(memberInfo.get(5)), Boolean.parseBoolean(memberInfo.get(6)),
+                    Boolean.parseBoolean(memberInfo.get(7)));
             competitiveMembers.add(competitiveMember);
 
             // tilføjer competitive member til det team der passer med members aldersgruppe
