@@ -37,7 +37,7 @@ public class Controller {
                     viewTeamMembers();
                     break;
                 case "4":
-                    handleSubscription();
+                    viewAllMemberSubscriptionStatus();
                     break;
                 case "5":
                     viewExpectedIncome();
@@ -99,7 +99,22 @@ public class Controller {
 
     }
 
-    public void handleSubscription() {
+    public void viewAllMemberSubscriptionStatus() {
+        ArrayList<Member> members = mdb.getMembers();
+        ArrayList<CompetitiveMember> compMembers= mdb.getCompetitiveMembers();
+
+        ui.printMessage("Normal members");
+        for (Member member : members) {
+            ui.printMessage(member.getMemberSubscriptionStatus());
+        }
+        ui.printMessage("\n");
+
+        ui.printMessage("Competetive members members");
+        for (CompetitiveMember competitiveMember : compMembers) {
+            ui.printMessage(competitiveMember.getMemberSubscriptionStatus());
+        }
+
+        ui.printMessage("\n");
     }
 
     public void viewExpectedIncome() {

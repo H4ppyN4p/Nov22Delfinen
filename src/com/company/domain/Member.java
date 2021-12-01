@@ -12,7 +12,7 @@ public class Member {
     private String subscriptionType;
     private AgeGroup ageGroup;
 
-    //Restance
+    //Subscription status
     private boolean hasPaidSubscription = true;
 
     public Member(String memberName, String memberAge, String subscriptionType) {
@@ -54,6 +54,14 @@ public class Member {
 
     public String getSubscriptonType(){
         return subscriptionType;
+    }
+
+    public String getMemberSubscriptionStatus(){
+        String stringToReturn = "";
+
+        stringToReturn = memberName + " ; have they paid their subscription? " + hasPaidSubscription;
+
+        return stringToReturn;
     }
 
     @Override
