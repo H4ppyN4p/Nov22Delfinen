@@ -37,6 +37,18 @@ public class Member {
         return subscriptionType;
     }
 
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
+    }
+
+    public void setMemberAge(String memberAge) {
+        this.memberAge = memberAge;
+    }
+
+    public void setSubscriptionType(String subscriptionType) {
+        this.subscriptionType = subscriptionType;
+    }
+
     @Override
     public String toString() {
         return memberName + ";" + memberAge + ";" + subscriptionType + ";" + ageGroup;

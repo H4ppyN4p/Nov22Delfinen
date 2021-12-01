@@ -25,7 +25,7 @@ public class Controller {
         while (running) {
             ui.printMenu();
 
-            String input = scanner.nextLine();
+            String input = scanner.nextLine().toLowerCase();
             switch (input){
                 case "1":
                     mdb.createMember();
@@ -44,6 +44,12 @@ public class Controller {
                     break;
                 case "6":
                     viewAllResults();
+                    break;
+                case "7":
+                    deleteMemberFromList();
+                    break;
+                case "8":
+                    editMemberFromList();
                     break;
                 case "0":
                     running = false;
@@ -108,5 +114,15 @@ public class Controller {
 
     }
 
+    public void deleteMemberFromList() {
+        String[] typeAndIndex = ui.getMemberTypeAndIndexDelete(scanner);
+        mdb.deleteMember(typeAndIndex[0], Integer.parseInt(typeAndIndex[1]));
+    }
+
+    public void editMemberFromList() {
+        String[] typeAndIndex = ui.getMemberTypeAndIndexEdit(scanner);
+        String[] attributeAndInfo = ui.getAttributeAndInfo(scanner);
+        mdb.editMember(typeAndIndex[0], Integer.parseInt(typeAndIndex[1]), attributeAndInfo[0], attributeAndInfo[1]);
+    }
 
 }

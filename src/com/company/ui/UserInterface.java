@@ -19,8 +19,10 @@ public class UserInterface {
                 4) Handle subscription
                 5) View expected income from subscriptions
                 6) View all results
+                7) Delete member
+                8) Edit member
                 0) Exit
-                
+                                
                 Enter command:  """);
     }
 
@@ -72,7 +74,7 @@ public class UserInterface {
 
                 System.out.println("Which swimming disciplines does the member want to participate in? (y/n)");
 
-                memberInfo.add(disciplineChoice("Crawl" , scanner));
+                memberInfo.add(disciplineChoice("Crawl", scanner));
                 memberInfo.add(disciplineChoice("Butterfly", scanner));
                 memberInfo.add(disciplineChoice("Backstroke", scanner));
                 memberInfo.add(disciplineChoice("Breaststroke", scanner));
@@ -107,6 +109,136 @@ public class UserInterface {
             }
         }
         return "false";
+    }
+
+    public String[] getMemberTypeAndIndexDelete(Scanner scanner) {
+        String[] typeAndIndex = new String[2];
+        boolean loop1 = true;
+        boolean loop2 = true;
+        String type = "";
+
+        System.out.println("Which type of member do you wish to delete? (Type 'n' for normal and 'c' for competitive)");
+
+        while (loop1) {
+            type = scanner.next();
+
+            if (type.equals("n")) {
+                type = "normal";
+                loop1 = false;
+            } else if (type.equals("c")) {
+                type = "competitive";
+                loop2 = false;
+            } else {
+                System.out.println("Type either 'n' or 'c' to continue");
+            }
+        }
+
+        System.out.println("Type the number next to the member you wish to delete");
+
+        String index = scanner.next();
+
+        typeAndIndex[0] = type;
+        typeAndIndex[1] = index;
+
+        return typeAndIndex;
+    }
+
+    public String[] getMemberTypeAndIndexEdit(Scanner scanner) {
+        String[] typeAndIndex = new String[2];
+        boolean loop1 = true;
+        boolean loop2 = true;
+        String type = "";
+
+        System.out.println("Which type of member do you wish to edit? (Type 'n' for normal and 'c' for competitive)");
+
+        while (loop1) {
+            type = scanner.next();
+
+            if (type.equals("n")) {
+                type = "normal";
+                loop1 = false;
+            } else if (type.equals("c")) {
+                type = "competitive";
+                loop2 = false;
+            } else {
+                System.out.println("Type either 'n' or 'c' to continue");
+            }
+        }
+
+        System.out.println("Type the number next to the member you wish to edit");
+
+        String index = scanner.next();
+
+        typeAndIndex[0] = type;
+        typeAndIndex[1] = index;
+
+        return typeAndIndex;
+    }
+
+    public String[] getAttributeAndInfo(Scanner scanner) {
+        String[] attributeAndInfo = new String[2];
+        boolean loop1 = true;
+        boolean loop2 = true;
+        boolean loop3 = true;
+        String attribute = "";
+        String info = "";
+
+        System.out.println("Which attribute do you wish to edit? (Type 'n' for name, 'a' for age, and 's' for subscription type");
+
+        while (loop1) {
+            attribute = scanner.next();
+
+            if (attribute.equals("n")) {
+                attribute = "name";
+                loop1 = false;
+            } else if (attribute.equals("a")) {
+                attribute = "age";
+                loop1 = false;
+            } else if (attribute.equals("s")) {
+                attribute = "subscription type";
+                loop1 = false;
+            } else {
+                System.out.println("Type either 'n', 'a' or 's' to continue");
+            }
+        }
+
+        if (attribute.equals("name")) {
+            System.out.println("Type in a new name to replace the old one");
+            info = scanner.nextLine();
+        } else if (attribute.equals("age")) {
+            System.out.println("Type in an age between 0-122");
+
+            while (loop2) {
+                info = scanner.next();
+
+                if (Integer.parseInt(info) < 0 || Integer.parseInt(info) > 122) {
+                    System.out.println("Invalid age, try again");
+                } else {
+                    loop2 = false;
+                }
+            }
+        } else {
+            System.out.println("Type in the subcription type you want to change to ('a' for active and 'p' for passive");
+
+            while (loop3) {
+                info = scanner.next();
+
+                if (info.equals("a")) {
+                    info = "active";
+                    loop3 = false;
+                } else if (info.equals("p")) {
+                    info = "passive";
+                    loop3 = false;
+                } else {
+                    System.out.println("Type either 'a' or 'p' to continue");
+                }
+            }
+        }
+
+        attributeAndInfo[0] = attribute;
+        attributeAndInfo[1] = info;
+
+        return attributeAndInfo;
     }
 
 

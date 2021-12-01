@@ -104,6 +104,59 @@ public class MemberDatabase {
         return members;
     }
 
+    public void deleteMember(String memberType, int index) {
+
+        if (memberType.equals("normal")) {
+            members.remove(index - 1);
+            fh.refreshMemberData(members);
+        } else {
+            competitiveMembers.remove(index - 1);
+            fh.refreshCompMemberData(competitiveMembers);
+        }
+    }
+
+    public void editMember(String memberType, int index, String attribute, String info) {
+
+        if (memberType.equals("normal")){
+            if (attribute.equals("name")) {
+                members.get(index - 1).setMemberName(info);
+            } else if (attribute.equals("age")) {
+                members.get(index - 1).setMemberAge(info);
+            } else {
+                if (info.equals("passive")) {
+                    members.get(index - 1).setSubscriptionType(SubscriptionType.PASSIVE.getType());
+                } else {
+                    if (members.get(index - 1).getAge() < 18) {
+                        members.get(index - 1).setSubscriptionType(SubscriptionType.YOUTH.getType());
+                    } else if (members.get(index - 1).getAge() >= 18 || members.get(index - 1).getAge() < 60) {
+                        members.get(index - 1).setSubscriptionType(SubscriptionType.ADULT.getType());
+                    } else {
+                        members.get(index - 1).setSubscriptionType(SubscriptionType.SENIOR.getType());
+                    }
+                }
+            }
+        }
+
+        if (memberType.equals("competitive")){
+            if (attribute.equals("name")) {
+                competitiveMembers.get(index - 1).setMemberName(info);
+            } else if (attribute.equals("age")) {
+                competitiveMembers.get(index - 1).setMemberAge(info);
+            } else {
+                if (info.equals("passive")) {
+                    competitiveMembers.get(index - 1).setSubscriptionType(SubscriptionType.PASSIVE.getType());
+                } else {
+                    if (competitiveMembers.get(index - 1).getAge() < 18) {
+                        competitiveMembers.get(index - 1).setSubscriptionType(SubscriptionType.YOUTH.getType());
+                    } else if (competitiveMembers.get(index - 1).getAge() >= 18 || competitiveMembers.get(index - 1).getAge() < 60) {
+                        competitiveMembers.get(index - 1).setSubscriptionType(SubscriptionType.ADULT.getType());
+                    } else {
+                        competitiveMembers.get(index - 1).setSubscriptionType(SubscriptionType.SENIOR.getType());
+                    }
+                }
+            }
+        }
+    }
 
 
 }

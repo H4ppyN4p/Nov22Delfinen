@@ -99,4 +99,32 @@ public class FileHandler {
         psComp.println(competitiveMember);
     }
 
+    public void refreshMemberData(ArrayList<Member> members) {
+        File memberFile = new File(FILE_NAME);
+
+        try {
+            PrintStream psm = new PrintStream(new FileOutputStream(memberFile, false));
+
+            for (Member member : members) {
+                psm.println(member);
+            }
+        } catch (FileNotFoundException e) {
+            e.getMessage();
+        }
+    }
+
+    public void refreshCompMemberData(ArrayList<CompetitiveMember> compMembers) {
+        File compMemberFile = new File(FILE_NAME_COMP);
+
+        try {
+            PrintStream psm = new PrintStream(new FileOutputStream(compMemberFile, false));
+
+            for (Member member : compMembers) {
+                psm.println(member);
+            }
+        } catch (FileNotFoundException e) {
+            e.getMessage();
+        }
+    }
+
 }
