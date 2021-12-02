@@ -27,5 +27,26 @@ public class CompetitiveResult{
         return date;
     }
 
+    public String getCompetitionName() {
+        return competitionName;
+    }
 
+    public void setCompetitionName(String competitionName) {
+        this.competitionName = competitionName;
+    }
+
+    public String getCompetitionLocation() {
+        return competitionLocation;
+    }
+
+    public void setCompetitionLocation(String competitionLocation) {
+        this.competitionLocation = competitionLocation;
+    }
+
+
+    @Override
+    public String toString() {
+        return competitionName + ";" + competitionLocation + ";" + time +
+                ";" + discipline + ";" + date;
+    }
 }

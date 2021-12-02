@@ -2,7 +2,6 @@ package com.company.domain;
 
 import com.company.data.MemberDatabase;
 import com.company.ui.UserInterface;
-
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;

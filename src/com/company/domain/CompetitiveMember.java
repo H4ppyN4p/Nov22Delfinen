@@ -1,21 +1,16 @@
 package com.company.domain;
 
+import java.util.ArrayList;
+
 public class CompetitiveMember extends Member {
 
     private CompetitiveResult competitiveResults;
-
     private boolean isCrawlSwimmer;
     private boolean isButterflySwimmer;
     private boolean isBackStrokeSwimmer;
     private boolean isBreastStrokeSwimmer;
 
-    private String bestLapCrawl = "0";
-    private String bestLapButterfly = "0";
-    private String bestLapBackCrawl = "0";
-    private String bestLapBreast = "0";
-
-    private boolean isMemberOfTeam;
-
+    private ArrayList<CompetitiveResult> competitions = new ArrayList<>();
 
     public CompetitiveMember(String memberName, String memberAge, String subscriptionType, boolean hasPaidSubscription,
                              boolean isCrawlSwimmer, boolean isButterflySwimmer,
@@ -31,24 +26,35 @@ public class CompetitiveMember extends Member {
     public CompetitiveMember(String memberName, String memberAge, String subscriptionType, boolean hasPaidSubscription,
                              boolean isCrawlSwimmer, boolean isButterflySwimmer,
                              boolean isBackStrokeSwimmer, boolean isBreastStrokeSwimmer,
-                             String bestLapBackCrawl, String bestLapButterfly,
-                             String bestLapBreast, String bestLapCrawl) {
+                             String compName, String compPlace, double swimTime, String swimCategory, String compDate) {
         super(memberName, memberAge, subscriptionType, hasPaidSubscription);
         this.isCrawlSwimmer = isCrawlSwimmer;
         this.isButterflySwimmer = isButterflySwimmer;
         this.isBackStrokeSwimmer = isBackStrokeSwimmer;
         this.isBreastStrokeSwimmer = isBreastStrokeSwimmer;
 
-        this.bestLapCrawl = bestLapCrawl;
-        this.bestLapButterfly = bestLapButterfly;
-        this.bestLapBackCrawl = bestLapBackCrawl;
-        this.bestLapBreast = bestLapBreast;
+        addCompetition(new CompetitiveResult(compName, compPlace, swimTime, swimCategory, compDate));
 
     }
+
+    public void addCompetition(CompetitiveResult competition) {
+        competitions.add(competition);
+    }
+
+    public CompetitiveResult getCompetitiveResults() {
+        return competitions.get(0);
+    }
+
+    public ArrayList<CompetitiveResult> getCompetitions() {
+        return competitions;
+    }
+
 
     @Override
     public String toString() {
         return super.toString() + ";" + isCrawlSwimmer + ";" + isButterflySwimmer + ";" + isBackStrokeSwimmer + ";" +
-                isBreastStrokeSwimmer + ";" + bestLapCrawl + ";" + bestLapButterfly + ";" + bestLapBackCrawl  + ";" + bestLapBreast;
+                isBreastStrokeSwimmer;
     }
+
+
 }

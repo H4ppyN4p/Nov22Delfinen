@@ -2,7 +2,6 @@ package com.company.data;
 
 import com.company.domain.Team;
 import com.company.domain.*;
-
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -24,7 +23,6 @@ public class MemberDatabase {
         juniorTeam.addMemberToTeam(competitiveMembers);
         seniorTeam.addMemberToTeam(competitiveMembers);
     }
-
 
 
     public void createMember() throws FileNotFoundException {
