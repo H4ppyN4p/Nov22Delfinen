@@ -13,8 +13,8 @@ class SubscriptionTest {
         ArrayList<Member> mb = new ArrayList<>();
         ArrayList<CompetitiveMember> cmb = new ArrayList<>();
         Member member = new Member("Jens", "28", "adult");
-        CompetitiveMember competMember = new CompetitiveMember("Bob", "80", "senior", false, false, false, false,
-                "0", "0", "0", "0");
+        CompetitiveMember competMember = new CompetitiveMember("Bob", "80", "senior", true, false, false, false, false,
+               0.0, "0", "0", "0", "0");
 
         mb.add(member);
         cmb.add(competMember);

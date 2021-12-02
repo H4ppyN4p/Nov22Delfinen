@@ -30,17 +30,19 @@ public class FileHandler {
         // Læs hver linje i filen
         try{
             //Opret fil object for at arbejde med csv-filen
-            File membersFile = new File("data/Members.csv");
+            File membersFile = new File(FILE_NAME_MEMBER);
+
             //Scan csv-filen
             Scanner reader = new Scanner(membersFile);
+
             //Vælg hvordan csv-filen skal splittes
             reader.useDelimiter(";");
 
             //så længe der er en ny linje
             while(reader.hasNext()) {
 
-
                 String line = reader.nextLine();
+
                 //Opret et Member object ud fra dataen i den linje
                 String[] newMember = line.split(";");
 
@@ -77,10 +79,11 @@ public class FileHandler {
                 String[] newMember = line.split(";");
 
                 CompetitiveMember member = new CompetitiveMember(newMember[0], newMember[1], newMember[2],
-                        Boolean.parseBoolean(newMember[4]), Boolean.parseBoolean(newMember[5]),
-                        Boolean.parseBoolean(newMember[6]), Boolean.parseBoolean(newMember[7]),
-                        Boolean.parseBoolean(newMember[8]), newMember[9], newMember[10],
-                        newMember[11], newMember[12]);
+                        Boolean.parseBoolean(newMember[3]), Boolean.parseBoolean(newMember[4]),
+                        Boolean.parseBoolean(newMember[5]), Boolean.parseBoolean(newMember[6]),
+                        Boolean.parseBoolean(newMember[7]), newMember[8], newMember[9],
+                        Double.parseDouble(newMember[10]), newMember[11], newMember[12]);
+
                 listOfAllCompMembers.add(member);
             }
 

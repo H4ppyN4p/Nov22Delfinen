@@ -115,7 +115,7 @@ public class Controller {
         }
         ui.printMessage("\n");
 
-        ui.printMessage("Competetive members members");
+        ui.printMessage("Competitive members");
         for (CompetitiveMember competitiveMember : compMembers) {
             ui.printMessage(competitiveMember.getMemberSubscriptionStatus());
         }
