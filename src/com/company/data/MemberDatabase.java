@@ -11,6 +11,7 @@ public class MemberDatabase {
 
     private ArrayList<Member> members;
     private ArrayList<CompetitiveMember> competitiveMembers;
+    private ArrayList<CompetitiveResult> competitiveResults;
     private Team juniorTeam = new Team(AgeGroup.JUNIOR);
     private Team seniorTeam = new Team(AgeGroup.SENIOR);
     private ArrayList<Subscription> subscriptions = new ArrayList<>();
@@ -19,6 +20,7 @@ public class MemberDatabase {
     public MemberDatabase() throws FileNotFoundException {
         members = fh.readFromFile();
         competitiveMembers = fh.readFromFileCompMembers();
+        competitiveResults = fh.readFromFileResults();
         juniorTeam.addMemberToTeam(competitiveMembers);
         seniorTeam.addMemberToTeam(competitiveMembers);
     }
@@ -159,5 +161,11 @@ public class MemberDatabase {
         }
     }
 
+    public void addCompetitiveResult(ArrayList<String> resultsInfo, int index) {
+        CompetitiveResult competitiveResult = new CompetitiveResult(resultsInfo.get(0),
+                resultsInfo.get(1), Double.parseDouble(resultsInfo.get(2)), resultsInfo.get(3), resultsInfo.get(4));
 
+        competitiveMembers.get(index - 1).addCompetition(competitiveResult);
+        fh.writeResultToFile(competitiveResult);
+    }
 }

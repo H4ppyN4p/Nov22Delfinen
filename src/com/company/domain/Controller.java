@@ -51,6 +51,9 @@ public class Controller {
                 case "8":
                     editMemberFromList();
                     break;
+                case "9":
+                    addCompResult();
+                    break;
                 case "0":
                     running = false;
                     ui.printMessage("Shutting down");
@@ -105,6 +108,20 @@ public class Controller {
 
     }
 
+    public void viewCompetitiveMembers() {
+        ArrayList<CompetitiveMember> compMembers= mdb.getCompetitiveMembers();
+        int count = 1;
+        ui.printMessage("Competitive members: ");
+
+        for (CompetitiveMember competitiveMember : compMembers) {
+
+            ui.printMessage(count + ". " + competitiveMember.toString());
+            count++;
+        }
+
+        ui.printMessage("\n");
+    }
+
     public void viewAllMemberSubscriptionStatus() {
         ArrayList<Member> members = mdb.getMembers();
         ArrayList<CompetitiveMember> compMembers= mdb.getCompetitiveMembers();
@@ -140,6 +157,13 @@ public class Controller {
         String[] typeAndIndex = ui.getMemberTypeAndIndexEdit(scanner);
         String[] attributeAndInfo = ui.getAttributeAndInfo(scanner);
         mdb.editMember(typeAndIndex[0], Integer.parseInt(typeAndIndex[1]), attributeAndInfo[0], attributeAndInfo[1]);
+    }
+
+    public void addCompResult() {
+        viewCompetitiveMembers();
+        int index = ui.getCompMemberIndex(scanner);
+        ArrayList<String> resultInfo = ui.getCompResultInfo(scanner);
+        mdb.addCompetitiveResult(resultInfo, index);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.company.data;
 
 import com.company.domain.CompetitiveMember;
+import com.company.domain.CompetitiveResult;
 import com.company.domain.Member;
 
 import java.io.File;
@@ -13,14 +14,17 @@ import java.util.Scanner;
 
 public class FileHandler {
 
-    private final String FILE_NAME = "data/Members.csv";
+    private final String FILE_NAME_MEMBER = "data/Members.csv";
     private final String FILE_NAME_COMP = "data/competitiveMembers.csv";
-    private PrintStream ps = new PrintStream(new FileOutputStream(FILE_NAME, true));
+    private final String FILE_NAME_RESULTS = "data/competitiveResults.csv";
+    private PrintStream ps = new PrintStream(new FileOutputStream(FILE_NAME_MEMBER, true));
     private PrintStream psComp = new PrintStream(new FileOutputStream(FILE_NAME_COMP, true));
+    private PrintStream psRes = new PrintStream((new FileOutputStream(FILE_NAME_RESULTS, true)));
 
     public FileHandler() throws FileNotFoundException {
         readFromFile();
         readFromFileCompMembers();
+        readFromFileResults();
     }
 
     public ArrayList<Member> readFromFile(){
@@ -64,7 +68,7 @@ public class FileHandler {
         // Læs hver linje i filen
         try{
             //Opret fil object for at arbejde med csv-filen
-            File membersFile = new File("data/competitiveMembers.csv");
+            File membersFile = new File(FILE_NAME_COMP);
             //Scan csv-filen
             Scanner reader = new Scanner(membersFile);
             //Vælg hvordan csv-filen skal splittes
@@ -94,6 +98,38 @@ public class FileHandler {
         return listOfAllCompMembers;
     }
 
+    public ArrayList<CompetitiveResult> readFromFileResults() {
+        ArrayList<CompetitiveResult> listOfAllResults = new ArrayList<>();
+
+        try {
+            File resultFile = new File(FILE_NAME_RESULTS);
+
+            Scanner reader = new Scanner(resultFile);
+            //Vælg hvordan csv-filen skal splittes
+            reader.useDelimiter(";");
+
+            //så længe der er en ny linje
+            while(reader.hasNext()) {
+
+
+                String line = reader.nextLine();
+                //Opret et Member object ud fra dataen i den linje
+                String[] newResult = line.split(";");
+
+                CompetitiveResult competitiveResult = new CompetitiveResult(newResult[0], newResult[1],
+                        Double.parseDouble(newResult[2]), newResult[3], newResult[4]);
+
+                listOfAllResults.add(competitiveResult);
+            }
+
+        } catch(FileNotFoundException e){
+            // No file found - just ignore, and start with empty database!
+            listOfAllResults.clear();
+        }
+
+        return listOfAllResults;
+    }
+
     public void writeToFile(Member member){
         ps.println(member);
     }
@@ -102,8 +138,12 @@ public class FileHandler {
         psComp.println(competitiveMember);
     }
 
+    public void writeResultToFile(CompetitiveResult competitiveResult) {
+        psRes.println(competitiveResult);
+    }
+
     public void refreshMemberData(ArrayList<Member> members) {
-        File memberFile = new File(FILE_NAME);
+        File memberFile = new File(FILE_NAME_MEMBER);
 
         try {
             PrintStream psm = new PrintStream(new FileOutputStream(memberFile, false));
@@ -129,5 +169,6 @@ public class FileHandler {
             e.getMessage();
         }
     }
+
 
 }

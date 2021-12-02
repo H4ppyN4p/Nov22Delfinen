@@ -1,22 +1,31 @@
 package com.company.domain;
 
-import java.util.ArrayList;
-
-public class CompetitiveResult {
+public class CompetitiveResult{
     private String competitionName;
     private String competitionLocation;
-    private Double swimmingTime;
-    private String swimmingCategory;
-    private String dateTime;
+    private double time;
+    private String discipline;
+    private String date;
 
-    public CompetitiveResult(String competitionName, String competitionLocation, Double swimmingTime, String swimmingCategory, String dateTime){
+    public CompetitiveResult(String competitionName, String competitionLocation, double time, String discipline, String date){
         this.competitionName = competitionName;
         this.competitionLocation = competitionLocation;
-        this.swimmingTime = swimmingTime;
-        this.swimmingCategory = swimmingCategory;
-        this.dateTime = dateTime;
+        this.time = time;
+        this.discipline = discipline;
+        this.date = date;
     }
 
+    public double getTime() {
+        return time;
+    }
+
+    public String getDiscipline() {
+        return discipline;
+    }
+
+    public String getDate() {
+        return date;
+    }
 
 
 }

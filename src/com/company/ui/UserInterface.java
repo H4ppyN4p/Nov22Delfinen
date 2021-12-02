@@ -2,6 +2,7 @@ package com.company.ui;
 
 import com.company.domain.SubscriptionType;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,6 +22,7 @@ public class UserInterface {
                 6) View all results
                 7) Delete member
                 8) Edit member
+                9) Add result to a competitive member
                 0) Exit
                                 
                 Enter command:  """);
@@ -241,5 +243,71 @@ public class UserInterface {
         return attributeAndInfo;
     }
 
+    public int getCompMemberIndex(Scanner scanner) {
+        System.out.print("Type the number beside the member you want to add a competition result to: ");
+        boolean loop = true;
 
+        while (loop){
+            String index = scanner.next();
+
+            if (Integer.parseInt(index) < 1) {
+                System.out.println("Invalid input. Type a number next to a member to continue");
+            } else {
+                return Integer.parseInt(index);
+            }
+        }
+        return 0;
+    }
+    
+    public ArrayList<String> getCompResultInfo(Scanner scanner) {
+        boolean loop = true;
+        ArrayList<String> resultInfo = new ArrayList<>();
+
+        System.out.print("Enter competition name: ");
+        String compName = scanner.next();
+        resultInfo.add(compName);
+
+        System.out.print("Enter competition location: ");
+        String compLocation = scanner.next();
+        resultInfo.add(compLocation);
+
+        System.out.print("Enter swimming time in seconds (decimal number allowed, use punctuation and not commas as a separator) : ");
+        String time = scanner.next();
+        resultInfo.add(time);
+
+        String discipline = "";
+
+        System.out.println("1. Crawl\n2. Butterfly\n3. Back stroke\n4. Breast stroke");
+        System.out.print("Enter the number next to the swimming discipline: ");
+        while (loop) {
+            discipline = scanner.next();
+
+
+            if (discipline.equals("1")) {
+                discipline = "crawl";
+                loop = false;
+            } else if (discipline.equals("2")) {
+                discipline = "butterfly";
+                loop = false;
+            } else if (discipline.equals("3")) {
+                discipline = "back stroke";
+                loop = false;
+            } else if (discipline.equals("4")) {
+                discipline = "breast stroke";
+                loop = false;
+            } else {
+                System.out.println("Type a number to continue");
+            }
+            resultInfo.add(discipline);
+        }
+
+
+        System.out.print("Enter date of competition: ");
+        String date = scanner.next();
+        resultInfo.add(date);
+
+        System.out.println("Result added to database");
+
+        return resultInfo;
+    }
 }
