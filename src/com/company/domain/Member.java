@@ -80,4 +80,9 @@ public class Member {
     public String toString() {
         return memberName + ";" + memberAge + ";" + subscriptionType + ";" + ageGroup + ";" + hasPaidSubscription;
     }
+
+    public String toStringUI() {
+        return "Name: " + memberName + "  Age: " + memberAge +
+                "  Subscription type: " + subscriptionType + "  Age group: " + ageGroup;
+    }
 }

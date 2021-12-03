@@ -76,7 +76,7 @@ public class Controller {
         ui.printMessage("All members: ");
         int count = 1;
         for (Member member : members) {
-            ui.printMessage(count + ". " + member.toString());
+            ui.printMessage(count + ". " + member.toStringUI());
             count++;
         }
         ui.printMessage("\n");
@@ -84,7 +84,7 @@ public class Controller {
         ui.printMessage("Competitive members: ");
         int count2 = 1;
         for (CompetitiveMember competitiveMember : compMembers) {
-            ui.printMessage(count2 + ". " + competitiveMember.toString());
+            ui.printMessage(count2 + ". " + competitiveMember.toStringUI());
             count2++;
         }
 
@@ -99,12 +99,12 @@ public class Controller {
 
         ui.printMessage("Junior team:");
         for (CompetitiveMember juniorMember : juniorTeam.getTeamMembers()) {
-            ui.printMessage(juniorMember.toString());
+            ui.printMessage(juniorMember.toStringUI());
         }
 
         ui.printMessage("Senior team:");
         for (CompetitiveMember seniorMember : seniorTeam.getTeamMembers()) {
-            ui.printMessage(seniorMember.toString());
+            ui.printMessage(seniorMember.toStringUI());
         }
 
     }
@@ -116,7 +116,7 @@ public class Controller {
 
         for (CompetitiveMember competitiveMember : compMembers) {
 
-            ui.printMessage(count + ". " + competitiveMember.toString());
+            ui.printMessage(count + ". " + competitiveMember.toStringUI());
             count++;
         }
 

@@ -80,11 +80,47 @@ public class CompetitiveMember extends Member {
         return competitiveNumber;
     }
 
+    public ArrayList<String> getDisciplineStatuses() {
+        ArrayList<String> disciplineStatuses = new ArrayList<>();
+
+        if (isCrawlSwimmer) {
+            disciplineStatuses.add("yes");
+        } else {
+            disciplineStatuses.add("no");
+        }
+
+        if (isButterflySwimmer) {
+            disciplineStatuses.add("yes");
+        } else {
+            disciplineStatuses.add("no");
+        }
+
+        if (isBackStrokeSwimmer) {
+            disciplineStatuses.add("yes");
+        } else {
+            disciplineStatuses.add("no");
+        }
+
+        if (isBreastStrokeSwimmer) {
+            disciplineStatuses.add("yes");
+        } else {
+            disciplineStatuses.add("no");
+        }
+
+        return disciplineStatuses;
+    }
+
 
     @Override
     public String toString() {
-        return competitiveNumber + ";" + super.toString() + ";" + isCrawlSwimmer + ";" + isButterflySwimmer + ";" + isBackStrokeSwimmer + ";" +
-                isBreastStrokeSwimmer;
+        return competitiveNumber + ";" + super.toString() + ";" + isCrawlSwimmer + ";" + isButterflySwimmer
+                + ";" + isBackStrokeSwimmer + ";" + isBreastStrokeSwimmer;
+    }
+
+    public String toStringUI() {
+        return "Competitive number: " + competitiveNumber + "  "+ super.toStringUI() + "  Crawl: "
+                + getDisciplineStatuses().get(0) + "  Butterfly: " + getDisciplineStatuses().get(1) + "  Back stroke: "
+                + getDisciplineStatuses().get(2) + "  Breast Stroke: " + getDisciplineStatuses().get(3);
     }
 
 
