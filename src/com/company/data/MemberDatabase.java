@@ -22,6 +22,7 @@ public class MemberDatabase {
         competitiveResults = fh.readFromFileResults();
         juniorTeam.addMemberToTeam(competitiveMembers);
         seniorTeam.addMemberToTeam(competitiveMembers);
+        joinResultWithMember();
     }
 
 
@@ -163,7 +164,19 @@ public class MemberDatabase {
         CompetitiveResult competitiveResult = new CompetitiveResult(resultsInfo.get(0),
                 resultsInfo.get(1), Double.parseDouble(resultsInfo.get(2)), resultsInfo.get(3), resultsInfo.get(4));
 
+        competitiveResult.setCompetitiveNumber(competitiveMembers.get(index - 1).getCompetitiveNumber());
+
         competitiveMembers.get(index - 1).addCompetition(competitiveResult);
         fh.writeResultToFile(competitiveResult);
+    }
+
+    public void joinResultWithMember() {
+        for (CompetitiveResult competitiveResult : competitiveResults) {
+            for (CompetitiveMember competitiveMember : competitiveMembers) {
+                if (competitiveResult.getCompetitiveNumber().equals(competitiveMember.getCompetitiveNumber())) {
+                    competitiveMember.addCompetition(competitiveResult);
+                }
+            }
+        }
     }
 }

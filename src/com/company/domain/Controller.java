@@ -74,16 +74,18 @@ public class Controller {
         ArrayList<CompetitiveMember> compMembers= mdb.getCompetitiveMembers();
 
         ui.printMessage("All members: ");
-        ui.printMessage("NAME;AGE;TYPE;GROUP;PAID?");
+        int count = 1;
         for (Member member : members) {
-            ui.printMessage(member.toString());
+            ui.printMessage(count + ". " + member.toString());
+            count++;
         }
         ui.printMessage("\n");
 
         ui.printMessage("Competitive members: ");
-        ui.printMessage("NAME;AGE;TYPE;GROUP;PAID?;CRAWL?;BUTTERFLY?;BACK?;BREAST?");
+        int count2 = 1;
         for (CompetitiveMember competitiveMember : compMembers) {
-            ui.printMessage(competitiveMember.toString());
+            ui.printMessage(count2 + ". " + competitiveMember.toString());
+            count2++;
         }
 
         ui.printMessage("\n");

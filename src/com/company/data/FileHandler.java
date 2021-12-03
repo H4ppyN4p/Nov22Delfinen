@@ -82,11 +82,10 @@ public class FileHandler {
                 //Opret et Member object ud fra dataen i den linje
                 String[] newMember = line.split(";");
 
-                CompetitiveMember member = new CompetitiveMember(newMember[0], newMember[1], newMember[2],
-                        Boolean.parseBoolean(newMember[3]), Boolean.parseBoolean(newMember[4]),
-                        Boolean.parseBoolean(newMember[5]), Boolean.parseBoolean(newMember[6]),
-                        Boolean.parseBoolean(newMember[7]), newMember[8], newMember[9],
-                        Double.parseDouble(newMember[10]), newMember[11], newMember[12]);
+                CompetitiveMember member = new CompetitiveMember(newMember[0], newMember[1], newMember[2], newMember[3],
+                        Boolean.parseBoolean(newMember[4]), Boolean.parseBoolean(newMember[5]),
+                        Boolean.parseBoolean(newMember[6]), Boolean.parseBoolean(newMember[7]),
+                        Boolean.parseBoolean(newMember[8]));
 
                 listOfAllCompMembers.add(member);
             }
@@ -113,11 +112,11 @@ public class FileHandler {
 
 
                 String line = reader.nextLine();
-                //Opret et Member object ud fra dataen i den linje
+
                 String[] newResult = line.split(";");
 
-                CompetitiveResult competitiveResult = new CompetitiveResult(newResult[0], newResult[1],
-                        Double.parseDouble(newResult[2]), newResult[3], newResult[4]);
+                CompetitiveResult competitiveResult = new CompetitiveResult(newResult[0], newResult[1], newResult[2],
+                        Double.parseDouble(newResult[3]), newResult[4], newResult[5]);
 
                 listOfAllResults.add(competitiveResult);
             }
