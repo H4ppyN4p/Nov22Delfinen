@@ -179,4 +179,8 @@ public class MemberDatabase {
             }
         }
     }
+
+    public ArrayList<CompetitiveResult> getCompetitiveResults(int index) {
+        return competitiveMembers.get(index - 1).getCompetitions();
+    }
 }

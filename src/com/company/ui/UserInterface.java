@@ -23,6 +23,7 @@ public class UserInterface {
                 7) Delete member
                 8) Edit member
                 9) Add result to a competitive member
+                10) View results for a competitive member
                 0) Exit
                                 
                 Enter command:  """);
@@ -309,5 +310,23 @@ public class UserInterface {
         System.out.println("Result added to database");
 
         return resultInfo;
+    }
+
+    public int getIndex(Scanner scanner) {
+        System.out.print("Type the number next to the member you wish to see the result of: ");
+        boolean loop = true;
+        String index = "";
+
+        while (loop) {
+            index = scanner.next();
+
+            if (Integer.parseInt(index) < 1) {
+                System.out.println("Invalid number");
+                System.out.print("Type a number: ");
+            } else {
+                loop = false;
+            }
+        }
+        return Integer.parseInt(index);
     }
 }

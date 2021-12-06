@@ -53,6 +53,9 @@ public class Controller {
                 case "9":
                     addCompResult();
                     break;
+                case "10":
+                    viewCompMemberResult();
+                    break;
                 case "0":
                     running = false;
                     ui.printMessage("Shutting down");
@@ -166,5 +169,17 @@ public class Controller {
         ArrayList<String> resultInfo = ui.getCompResultInfo(scanner);
         mdb.addCompetitiveResult(resultInfo, index);
     }
+
+    public void viewCompMemberResult() {
+        ArrayList<CompetitiveResult> results = mdb.getCompetitiveResults(ui.getIndex(scanner));
+        int count = 1;
+        System.out.println("Competitive results: ");
+        for (CompetitiveResult result : results) {
+            ui.printMessage(count + ". " + result);
+        }
+
+    }
+
+
 
 }
