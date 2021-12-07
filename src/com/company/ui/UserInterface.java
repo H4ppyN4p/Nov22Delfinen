@@ -35,18 +35,29 @@ public class UserInterface {
 
     public ArrayList<String> getMemberInfo(Scanner scanner) {
         ArrayList<String> memberInfo = new ArrayList<>();
+        boolean loop = true;
         System.out.print("Enter members name: ");
         String memberName = scanner.nextLine();
         memberInfo.add(memberName);
-        System.out.print("Enter members age: ");
-        String memberAge = scanner.nextLine();
+        System.out.print("Enter members age (0-122): ");
+        String memberAge = "";
+
+        while (loop) {
+            memberAge = scanner.next();
+
+            if (Integer.parseInt(memberAge) < 0 || Integer.parseInt(memberAge) > 122) {
+                System.out.println("Invalid age, try again");
+            } else {
+                loop = false;
+            }
+        }
         memberInfo.add(memberAge);
 
         boolean go = true;
 
         while (go) {
             System.out.print("Enter subscription type ('a' for active and 'p' for passive): ");
-            String subscriptionType = scanner.nextLine();
+            String subscriptionType = scanner.next();
 
             switch (subscriptionType) {
                 case "a":
@@ -68,9 +79,9 @@ public class UserInterface {
             }
         }
 
-        boolean loop = true;
+        boolean loop2 = true;
 
-        while (loop) {
+        while (loop2) {
             System.out.print("Is member competitive? (y/n): ");
             String compStatus = scanner.next();
             if (compStatus.equals("y")) {
@@ -83,10 +94,10 @@ public class UserInterface {
                 memberInfo.add(disciplineChoice("Breaststroke", scanner));
 
                 memberInfo.add(compStatus);
-                loop = false;
+                loop2 = false;
             } else if (compStatus.equals("n")) {
                 memberInfo.add(compStatus);
-                loop = false;
+                loop2 = false;
             } else {
                 System.out.println("Type either 'y' for yes or 'n' for no");
             }
