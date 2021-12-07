@@ -56,6 +56,9 @@ public class Controller {
                 case "10":
                     viewCompMemberResult();
                     break;
+                case "11":
+                    viewTopFive();
+                    break;
                 case "0":
                     running = false;
                     ui.printMessage("Shutting down");
@@ -182,6 +185,13 @@ public class Controller {
 
     }
 
-
+    public void viewTopFive() {
+        String[] disciplineAndTeam = ui.getDisciplineAndTeam(scanner);
+        ArrayList<CompetitiveResult> results = mdb.topFiveTimesInDiscipline(disciplineAndTeam[0], disciplineAndTeam[1]);
+        ui.printMessage("Top five " + disciplineAndTeam[0] + " lap times in the " + disciplineAndTeam[1] + ": ");
+        for (CompetitiveResult result : results) {
+            ui.printMessage(result.toStringUI());
+        }
+    }
 
 }

@@ -186,7 +186,7 @@ public class MemberDatabase {
         return competitiveMembers.get(index - 1).getCompetitions();
     }
 
-    public void topFiveTimesInDiscipline(String discipline, String team) {
+    public ArrayList<CompetitiveResult> topFiveTimesInDiscipline(String discipline, String team) {
         Team actualTeam;
         if (team.equals("junior team")) {
             actualTeam = juniorTeam;
@@ -194,17 +194,24 @@ public class MemberDatabase {
             actualTeam = seniorTeam;
         }
 
-        Team comparableTeam = new Team();
         ArrayList<CompetitiveResult> results;
+        ArrayList<CompetitiveResult> resultsToBeCompared = new ArrayList<>();
 
-        for (CompetitiveMember competitiveMember : actualTeam.getTeamMembers()) {
-            results = competitiveMember.getCompetitiveResults();
+        while (resultsToBeCompared.size() < 5) {
 
-            for (CompetitiveResult competitiveResult : results) {
+            for (CompetitiveMember competitiveMember : actualTeam.getTeamMembers()) {
+                results = competitiveMember.getCompetitiveResults();
 
+                for (CompetitiveResult competitiveResult : results) {
+
+                    if (competitiveResult.getDiscipline().equals(discipline)) {
+                        resultsToBeCompared.add(competitiveResult);
+                    }
+                }
             }
         }
+        Collections.sort(resultsToBeCompared, timeComparator);
 
-
+        return resultsToBeCompared;
     }
 }

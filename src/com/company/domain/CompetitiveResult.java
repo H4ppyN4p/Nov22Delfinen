@@ -68,4 +68,10 @@ public class CompetitiveResult{
         return competitiveNumber + ";" + competitionName + ";" + competitionLocation + ";" + time +
                 ";" + discipline + ";" + date;
     }
+
+    public String toStringUI() {
+        return "Competitive number: " + competitiveNumber + "  Competition name: " + competitionName + "  Location: " +
+                competitionLocation + " Lap time: " + time +
+                "  Discipline: " + discipline + "  Date: " + date;
+    }
 }

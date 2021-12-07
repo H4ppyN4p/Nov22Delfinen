@@ -24,6 +24,7 @@ public class UserInterface {
                 8) Edit member
                 9) Add result to a competitive member
                 10) View results for a competitive member
+                11) View top five lap times in a discipline
                 0) Exit
                                 
                 Enter command:  """);
@@ -339,5 +340,55 @@ public class UserInterface {
             }
         }
         return Integer.parseInt(index);
+    }
+
+    public String[] getDisciplineAndTeam(Scanner scanner) {
+        String discipline = "";
+        String team = "";
+        boolean loop = true;
+        boolean loop2 = true;
+        String[] disciplineAndTeam = new String[2];
+
+        System.out.println("1. Crawl\n2. Butterfly\n3. Back stroke\n4. Breast stroke");
+        System.out.print("Enter the number next to the swimming discipline: ");
+        while (loop) {
+            discipline = scanner.next();
+
+
+            if (discipline.equals("1")) {
+                discipline = "crawl";
+                loop = false;
+            } else if (discipline.equals("2")) {
+                discipline = "butterfly";
+                loop = false;
+            } else if (discipline.equals("3")) {
+                discipline = "back stroke";
+                loop = false;
+            } else if (discipline.equals("4")) {
+                discipline = "breast stroke";
+                loop = false;
+            } else {
+                System.out.println("Type a number to continue");
+            }
+            disciplineAndTeam[0] = discipline;
+        }
+
+        System.out.print("Enter team ('j' for junior team or 's' for senior team: ");
+        while (loop2) {
+            team = scanner.next();
+
+            if (team.equals("j")) {
+                team = "junior team";
+                loop2 = false;
+            } else if (team.equals("s")) {
+                team = "senior team";
+                loop2 = false;
+            } else {
+                System.out.println("Enter either 'j' or 's' to continue");
+            }
+        }
+        disciplineAndTeam[1] = team;
+
+        return disciplineAndTeam;
     }
 }
