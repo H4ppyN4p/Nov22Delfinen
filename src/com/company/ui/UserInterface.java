@@ -11,11 +11,12 @@ import java.util.Scanner;
 public class UserInterface {
 
     public void printWelcome() {
-        System.out.println("Welcome to The Dolphin. Choose what you want to do");
+        System.out.println("\033[4;33mWelcome to The Dolphin. Choose what you want to do");
     }
 
     public void printMenu() {
-        System.out.print("""              
+        System.out.print("""     
+                \033[0;34m         
                 1) Create new member  
                 2) View all members 
                 3) View teams
@@ -28,7 +29,7 @@ public class UserInterface {
                 10) View results for a competitive member
                 11) View top five lap times in a discipline
                 0) Exit
-                                
+                \033[4;34m                
                 Enter command:  """);
     }
 
@@ -134,9 +135,9 @@ public class UserInterface {
         boolean loop2 = true;
         String type = "";
 
-        if (deleteEdit == 1){
+        if (deleteEdit == 1) {
             System.out.println("Which type of member do you wish to delete? (Type 'n' for normal and 'c' for competitive)");
-        } else if (deleteEdit == 2){
+        } else if (deleteEdit == 2) {
             System.out.println("Which type of member do you wish to edit? (Type 'n' for normal and 'c' for competitive)");
         }
 
@@ -153,11 +154,11 @@ public class UserInterface {
                 System.out.println("Type either 'n' or 'c' to continue");
             }
         }
-        System.out.println();
 
-        if (deleteEdit == 1){
+
+        if (deleteEdit == 1) {
             System.out.println("Type the number next to the member you wish to delete");
-        } else if (deleteEdit == 2){
+        } else if (deleteEdit == 2) {
             System.out.println("Type the number next to the member you wish to edit");
         }
 
@@ -240,7 +241,7 @@ public class UserInterface {
         System.out.print("Type the number beside the member you want to add a competition result to: ");
         boolean loop = true;
 
-        while (loop){
+        while (loop) {
             String index = scanner.next();
 
             if (Integer.parseInt(index) < 1) {
@@ -251,7 +252,7 @@ public class UserInterface {
         }
         return 0;
     }
-    
+
     public ArrayList<String> getCompResultInfo(Scanner scanner) {
         boolean loop = true;
         ArrayList<String> resultInfo = new ArrayList<>();

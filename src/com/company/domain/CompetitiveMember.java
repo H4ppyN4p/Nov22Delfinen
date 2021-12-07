@@ -118,7 +118,7 @@ public class CompetitiveMember extends Member {
     }
 
     public String toStringUI() {
-        return "Competitive number: " + competitiveNumber + "  "+ super.toStringUI() + "  Crawl: "
+        return "Competitive number: " + competitiveNumber + "  " + super.toStringUI() + "  Crawl: "
                 + getDisciplineStatuses().get(0) + "  Butterfly: " + getDisciplineStatuses().get(1) + "  Back stroke: "
                 + getDisciplineStatuses().get(2) + "  Breast Stroke: " + getDisciplineStatuses().get(3);
     }

@@ -2,6 +2,7 @@ package com.company.domain;
 
 import com.company.data.MemberDatabase;
 import com.company.ui.UserInterface;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -25,7 +26,7 @@ public class Controller {
             ui.printMenu();
 
             String input = scanner.nextLine().toLowerCase();
-            switch (input){
+            switch (input) {
                 case "1":
                     mdb.createMember();
                     break;
@@ -77,7 +78,7 @@ public class Controller {
 
     public void viewMembers() {
         ArrayList<Member> members = mdb.getMembers();
-        ArrayList<CompetitiveMember> compMembers= mdb.getCompetitiveMembers();
+        ArrayList<CompetitiveMember> compMembers = mdb.getCompetitiveMembers();
 
         ui.printMessage("All members: ");
         int count = 1;
@@ -116,7 +117,7 @@ public class Controller {
     }
 
     public void viewCompetitiveMembers() {
-        ArrayList<CompetitiveMember> compMembers= mdb.getCompetitiveMembers();
+        ArrayList<CompetitiveMember> compMembers = mdb.getCompetitiveMembers();
         int count = 1;
         ui.printMessage("Competitive members: ");
 
@@ -131,7 +132,7 @@ public class Controller {
 
     public void viewAllMemberSubscriptionStatus() {
         ArrayList<Member> members = mdb.getMembers();
-        ArrayList<CompetitiveMember> compMembers= mdb.getCompetitiveMembers();
+        ArrayList<CompetitiveMember> compMembers = mdb.getCompetitiveMembers();
 
         ui.printMessage("Normal members");
         for (Member member : members) {
@@ -148,7 +149,7 @@ public class Controller {
     }
 
     public void viewExpectedIncome() {
-        System.out.println(sub.expectedIncome(mdb.getMembers(), mdb.getCompetitiveMembers()));
+        System.out.println("The expected income is: " + sub.expectedIncome(mdb.getMembers(), mdb.getCompetitiveMembers()) + " DKK");
     }
 
     public void viewAllResults() {
