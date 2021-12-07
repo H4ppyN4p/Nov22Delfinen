@@ -44,21 +44,21 @@ public class Member {
         this.hasPaidSubscription = hasPaidSubscription;
     }
 
-    public AgeGroup getAgeGroup(){
+    public AgeGroup getAgeGroup() {
         return this.ageGroup;
     }
 
-    public int getAge(){
+    public int getAge() {
         return Integer.parseInt(memberAge);
     }
 
-    public String getSubscriptonType(){
+    public String getSubscriptonType() {
         return subscriptionType;
     }
 
-    public String getMemberSubscriptionStatus(){
+    public String getMemberSubscriptionStatus() {
         String stringToReturn = "";
-        if (hasPaidSubscription == true){
+        if (hasPaidSubscription == true) {
             stringToReturn = memberName + " ; have paid their subscription";
 
         } else {

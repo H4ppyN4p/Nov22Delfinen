@@ -21,24 +21,24 @@ public class Subscription {
         ArrayList<Member> members = listOfAllMembers;
         ArrayList<CompetitiveMember> competitiveMembers = listOfAllCompetetiveMembers;
 
-        for (int i = 0; i < members.size(); i++){
-            if (members.get(i).getSubscriptonType().equals("youth")){
+        for (int i = 0; i < members.size(); i++) {
+            if (members.get(i).getSubscriptonType().equals("youth")) {
                 juniorMembers++;
-            } else if (members.get(i).getSubscriptonType().equals("adult")){
+            } else if (members.get(i).getSubscriptonType().equals("adult")) {
                 adultMembers++;
-            } else if (members.get(i).getSubscriptonType().equals("senior")){
+            } else if (members.get(i).getSubscriptonType().equals("senior")) {
                 seniorMembers++;
             } else if (members.get(i).getSubscriptonType().equals("passive")) {
                 passiveMembers++;
             }
         }
 
-        for (int i = 0; i < competitiveMembers.size(); i++){
-            if (competitiveMembers.get(i).getSubscriptonType().equals("youth")){
+        for (int i = 0; i < competitiveMembers.size(); i++) {
+            if (competitiveMembers.get(i).getSubscriptonType().equals("youth")) {
                 juniorMembers++;
-            } else if (competitiveMembers.get(i).getSubscriptonType().equals("adult")){
+            } else if (competitiveMembers.get(i).getSubscriptonType().equals("adult")) {
                 adultMembers++;
-            } else if (competitiveMembers.get(i).getSubscriptonType().equals("senior")){
+            } else if (competitiveMembers.get(i).getSubscriptonType().equals("senior")) {
                 seniorMembers++;
             } else if (competitiveMembers.get(i).getSubscriptonType().equals("passive")) {
                 passiveMembers++;

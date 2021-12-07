@@ -2,6 +2,7 @@ package com.company.data;
 
 import com.company.domain.Team;
 import com.company.domain.*;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,10 +37,7 @@ public class MemberDatabase {
             members.add(member);
             fh.writeToFile(member);
 
-            /*Subscription subscription = new Subscription(member);
-            subscriptions.add(subscription);
 
-             */
         } else {
             CompetitiveMember competitiveMember = new CompetitiveMember(memberInfo.get(0),
                     memberInfo.get(1), memberInfo.get(2), true, Boolean.parseBoolean(memberInfo.get(4)),
@@ -56,9 +54,6 @@ public class MemberDatabase {
 
             fh.writeToFileComp(competitiveMember);
 
-            /*Subscription subscription = new Subscription(competitiveMember);
-            subscriptions.add(subscription);
-             */
         }
 
     }
@@ -79,32 +74,32 @@ public class MemberDatabase {
         return seniorTeam;
     }
 
-    public ArrayList<Member> getTop5FastestSwimTimesForEachDiscipline(){
+    public ArrayList<Member> getTop5FastestSwimTimesForEachDiscipline() {
         return members;
     }
 
-    public ArrayList<Member> getAmountOfJuniorMembers(){
+    public ArrayList<Member> getAmountOfJuniorMembers() {
         return members;
     }
 
-    public ArrayList<Member> getAmountOfAdultMembers(){
+    public ArrayList<Member> getAmountOfAdultMembers() {
         return members;
     }
 
 
-    public ArrayList<Member> getAmountOfSeniorMembers(){
+    public ArrayList<Member> getAmountOfSeniorMembers() {
         return members;
     }
 
-    public ArrayList<Member> getAmountOfPassiveMembers(){
+    public ArrayList<Member> getAmountOfPassiveMembers() {
         return members;
     }
 
-    public ArrayList<Member> getAmountOfActiveMembers(){
+    public ArrayList<Member> getAmountOfActiveMembers() {
         return members;
     }
 
-    public ArrayList<Member> getAmountOfMembersInRestance(){
+    public ArrayList<Member> getAmountOfMembersInRestance() {
         return members;
     }
 
@@ -121,7 +116,7 @@ public class MemberDatabase {
 
     public void editMember(String memberType, int index, String attribute, String info) {
 
-        if (memberType.equals("normal")){
+        if (memberType.equals("normal")) {
             if (attribute.equals("name")) {
                 members.get(index - 1).setMemberName(info);
             } else if (attribute.equals("age")) {
@@ -141,7 +136,7 @@ public class MemberDatabase {
             }
         }
 
-        if (memberType.equals("competitive")){
+        if (memberType.equals("competitive")) {
             if (attribute.equals("name")) {
                 competitiveMembers.get(index - 1).setMemberName(info);
             } else if (attribute.equals("age")) {

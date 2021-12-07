@@ -9,7 +9,7 @@ public enum SubscriptionType {
 
     private String type;
 
-    SubscriptionType(String subscriptionType){
+    SubscriptionType(String subscriptionType) {
         type = subscriptionType;
     }
 

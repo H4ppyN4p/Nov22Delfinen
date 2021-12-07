@@ -27,12 +27,12 @@ public class FileHandler {
         readFromFileResults();
     }
 
-    public ArrayList<Member> readFromFile(){
+    public ArrayList<Member> readFromFile() {
         ArrayList<Member> listOfAllMembers = new ArrayList<>();
 
         // Åbn en fil
         // Læs hver linje i filen
-        try{
+        try {
             //Opret fil object for at arbejde med csv-filen
             File membersFile = new File(FILE_NAME_MEMBER);
 
@@ -43,7 +43,7 @@ public class FileHandler {
             reader.useDelimiter(";");
 
             //så længe der er en ny linje
-            while(reader.hasNext()) {
+            while (reader.hasNext()) {
 
                 String line = reader.nextLine();
 
@@ -54,19 +54,19 @@ public class FileHandler {
                 listOfAllMembers.add(member);
             }
 
-        } catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             // No file found - just ignore, and start with empty database!
             listOfAllMembers.clear();
         }
         return listOfAllMembers;
     }
 
-    public ArrayList<CompetitiveMember> readFromFileCompMembers(){
+    public ArrayList<CompetitiveMember> readFromFileCompMembers() {
         ArrayList<CompetitiveMember> listOfAllCompMembers = new ArrayList<>();
 
         // Åbn en fil
         // Læs hver linje i filen
-        try{
+        try {
             //Opret fil object for at arbejde med csv-filen
             File membersFile = new File(FILE_NAME_COMP);
             //Scan csv-filen
@@ -75,7 +75,7 @@ public class FileHandler {
             reader.useDelimiter(";");
 
             //så længe der er en ny linje
-            while(reader.hasNext()) {
+            while (reader.hasNext()) {
 
 
                 String line = reader.nextLine();
@@ -90,7 +90,7 @@ public class FileHandler {
                 listOfAllCompMembers.add(member);
             }
 
-        } catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             // No file found - just ignore, and start with empty database!
             listOfAllCompMembers.clear();
         }
@@ -108,7 +108,7 @@ public class FileHandler {
             reader.useDelimiter(";");
 
             //så længe der er en ny linje
-            while(reader.hasNext()) {
+            while (reader.hasNext()) {
 
 
                 String line = reader.nextLine();
@@ -121,7 +121,7 @@ public class FileHandler {
                 listOfAllResults.add(competitiveResult);
             }
 
-        } catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             // No file found - just ignore, and start with empty database!
             listOfAllResults.clear();
         }
@@ -129,11 +129,11 @@ public class FileHandler {
         return listOfAllResults;
     }
 
-    public void writeToFile(Member member){
+    public void writeToFile(Member member) {
         ps.println(member);
     }
 
-    public void writeToFileComp(CompetitiveMember competitiveMember){
+    public void writeToFileComp(CompetitiveMember competitiveMember) {
         psComp.println(competitiveMember);
     }
 
