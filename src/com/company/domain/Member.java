@@ -58,10 +58,15 @@ public class Member {
 
     public String getMemberSubscriptionStatus(){
         String stringToReturn = "";
+        if (hasPaidSubscription == true){
+            stringToReturn = memberName + " ; have paid their subscription";
 
-        stringToReturn = memberName + " ; have they paid their subscription? " + hasPaidSubscription;
+        } else {
+            stringToReturn = memberName + " ; have not they paid their subscription";
+        }
 
         return stringToReturn;
+
     }
 
     public void setMemberName(String memberName) {
