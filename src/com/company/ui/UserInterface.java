@@ -173,7 +173,7 @@ public class UserInterface {
                 loop1 = false;
             } else if (type.equals("c")) {
                 type = "competitive";
-                loop2 = false;
+                loop1 = false;
             } else {
                 System.out.println("Type either 'n' or 'c' to continue");
             }

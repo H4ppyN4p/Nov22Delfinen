@@ -153,11 +153,13 @@ public class Controller {
     }
 
     public void deleteMemberFromList() {
+        viewMembers();
         String[] typeAndIndex = ui.getMemberTypeAndIndexDelete(scanner);
         mdb.deleteMember(typeAndIndex[0], Integer.parseInt(typeAndIndex[1]));
     }
 
     public void editMemberFromList() {
+        viewMembers();
         String[] typeAndIndex = ui.getMemberTypeAndIndexEdit(scanner);
         String[] attributeAndInfo = ui.getAttributeAndInfo(scanner);
         mdb.editMember(typeAndIndex[0], Integer.parseInt(typeAndIndex[1]), attributeAndInfo[0], attributeAndInfo[1]);

@@ -4,6 +4,7 @@ import com.company.domain.Team;
 import com.company.domain.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MemberDatabase {
 
@@ -15,6 +16,7 @@ public class MemberDatabase {
     private Team seniorTeam = new Team(AgeGroup.SENIOR);
     private ArrayList<Subscription> subscriptions = new ArrayList<>();
     private FileHandler fh = new FileHandler();
+    private TimeComparator timeComparator = new TimeComparator();
 
     public MemberDatabase() throws FileNotFoundException {
         members = fh.readFromFile();
@@ -182,5 +184,27 @@ public class MemberDatabase {
 
     public ArrayList<CompetitiveResult> getCompetitiveResults(int index) {
         return competitiveMembers.get(index - 1).getCompetitions();
+    }
+
+    public void topFiveTimesInDiscipline(String discipline, String team) {
+        Team actualTeam;
+        if (team.equals("junior team")) {
+            actualTeam = juniorTeam;
+        } else {
+            actualTeam = seniorTeam;
+        }
+
+        Team comparableTeam = new Team();
+        ArrayList<CompetitiveResult> results;
+
+        for (CompetitiveMember competitiveMember : actualTeam.getTeamMembers()) {
+            results = competitiveMember.getCompetitiveResults();
+
+            for (CompetitiveResult competitiveResult : results) {
+
+            }
+        }
+
+
     }
 }

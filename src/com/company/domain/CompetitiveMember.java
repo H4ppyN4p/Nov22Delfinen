@@ -68,8 +68,8 @@ public class CompetitiveMember extends Member {
         competitions.add(competition);
     }
 
-    public CompetitiveResult getCompetitiveResults() {
-        return competitions.get(0);
+    public ArrayList<CompetitiveResult> getCompetitiveResults() {
+        return competitions;
     }
 
     public ArrayList<CompetitiveResult> getCompetitions() {
