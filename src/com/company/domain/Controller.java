@@ -45,10 +45,10 @@ public class Controller {
                     viewAllResults();
                     break;
                 case "7":
-                    deleteMemberFromList();
+                    deleteMemberFromList(1);
                     break;
                 case "8":
-                    editMemberFromList();
+                    editMemberFromList(2);
                     break;
                 case "9":
                     addCompResult();
@@ -155,15 +155,15 @@ public class Controller {
 
     }
 
-    public void deleteMemberFromList() {
+    public void deleteMemberFromList(int deleteEdit) {
         viewMembers();
-        String[] typeAndIndex = ui.getMemberTypeAndIndexDelete(scanner);
+        String[] typeAndIndex = ui.getMemberTypeAndIndexDeleteEdit(scanner, deleteEdit);
         mdb.deleteMember(typeAndIndex[0], Integer.parseInt(typeAndIndex[1]));
     }
 
-    public void editMemberFromList() {
+    public void editMemberFromList(int deleteEdit) {
         viewMembers();
-        String[] typeAndIndex = ui.getMemberTypeAndIndexEdit(scanner);
+        String[] typeAndIndex = ui.getMemberTypeAndIndexDeleteEdit(scanner, deleteEdit);
         String[] attributeAndInfo = ui.getAttributeAndInfo(scanner);
         mdb.editMember(typeAndIndex[0], Integer.parseInt(typeAndIndex[1]), attributeAndInfo[0], attributeAndInfo[1]);
     }

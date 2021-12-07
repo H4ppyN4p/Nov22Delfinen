@@ -1,5 +1,7 @@
 package com.company.ui;
 
+import com.company.data.MemberDatabase;
+import com.company.domain.Controller;
 import com.company.domain.SubscriptionType;
 
 import java.sql.SQLOutput;
@@ -126,45 +128,17 @@ public class UserInterface {
         return "false";
     }
 
-    public String[] getMemberTypeAndIndexDelete(Scanner scanner) {
+    public String[] getMemberTypeAndIndexDeleteEdit(Scanner scanner, int deleteEdit) {
         String[] typeAndIndex = new String[2];
         boolean loop1 = true;
         boolean loop2 = true;
         String type = "";
 
-        System.out.println("Which type of member do you wish to delete? (Type 'n' for normal and 'c' for competitive)");
-
-        while (loop1) {
-            type = scanner.next();
-
-            if (type.equals("n")) {
-                type = "normal";
-                loop1 = false;
-            } else if (type.equals("c")) {
-                type = "competitive";
-                loop2 = false;
-            } else {
-                System.out.println("Type either 'n' or 'c' to continue");
-            }
+        if (deleteEdit == 1){
+            System.out.println("Which type of member do you wish to delete? (Type 'n' for normal and 'c' for competitive)");
+        } else if (deleteEdit == 2){
+            System.out.println("Which type of member do you wish to edit? (Type 'n' for normal and 'c' for competitive)");
         }
-
-        System.out.println("Type the number next to the member you wish to delete");
-
-        String index = scanner.next();
-
-        typeAndIndex[0] = type;
-        typeAndIndex[1] = index;
-
-        return typeAndIndex;
-    }
-
-    public String[] getMemberTypeAndIndexEdit(Scanner scanner) {
-        String[] typeAndIndex = new String[2];
-        boolean loop1 = true;
-        boolean loop2 = true;
-        String type = "";
-
-        System.out.println("Which type of member do you wish to edit? (Type 'n' for normal and 'c' for competitive)");
 
         while (loop1) {
             type = scanner.next();
@@ -179,8 +153,13 @@ public class UserInterface {
                 System.out.println("Type either 'n' or 'c' to continue");
             }
         }
+        System.out.println();
 
-        System.out.println("Type the number next to the member you wish to edit");
+        if (deleteEdit == 1){
+            System.out.println("Type the number next to the member you wish to delete");
+        } else if (deleteEdit == 2){
+            System.out.println("Type the number next to the member you wish to edit");
+        }
 
         String index = scanner.next();
 
@@ -189,6 +168,7 @@ public class UserInterface {
 
         return typeAndIndex;
     }
+
 
     public String[] getAttributeAndInfo(Scanner scanner) {
         String[] attributeAndInfo = new String[2];
