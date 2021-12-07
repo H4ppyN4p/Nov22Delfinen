@@ -25,7 +25,7 @@ public class Controller {
         while (running) {
             ui.printMenu();
 
-            String input = scanner.nextLine().toLowerCase();
+            String input = scanner.next().toLowerCase();
             switch (input) {
                 case "1":
                     mdb.createMember();
