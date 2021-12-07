@@ -1,5 +1,7 @@
 package com.company.ui;
 
+import com.company.data.MemberDatabase;
+import com.company.domain.Controller;
 import com.company.domain.SubscriptionType;
 
 import java.sql.SQLOutput;
@@ -150,6 +152,7 @@ public class UserInterface {
                 System.out.println("Type either 'n' or 'c' to continue");
             }
         }
+        System.out.println();
 
         if (deleteEdit == 1){
             System.out.println("Type the number next to the member you wish to delete");
