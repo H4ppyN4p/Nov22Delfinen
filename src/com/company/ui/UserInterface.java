@@ -354,7 +354,7 @@ public class UserInterface {
             disciplineAndTeam[0] = discipline;
         }
 
-        System.out.print("Enter team ('j' for junior team or 's' for senior team: ");
+        System.out.print("Enter team ('j' for junior team or 's' for senior team): ");
         while (loop2) {
             team = scanner.next();
 

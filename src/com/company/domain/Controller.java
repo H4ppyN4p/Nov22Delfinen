@@ -190,9 +190,16 @@ public class Controller {
         String[] disciplineAndTeam = ui.getDisciplineAndTeam(scanner);
         ArrayList<CompetitiveResult> results = mdb.topFiveTimesInDiscipline(disciplineAndTeam[0], disciplineAndTeam[1]);
         ui.printMessage("Top five " + disciplineAndTeam[0] + " lap times in the " + disciplineAndTeam[1] + ": ");
+        int count = 1;
+
         for (CompetitiveResult result : results) {
-            ui.printMessage(result.toStringUI());
+            ui.printMessage(count + ". " + result.toStringUI());
+            count++;
+            if (count == 6) {
+                break;
+            }
         }
+        ui.printMessage("");
     }
 
 }

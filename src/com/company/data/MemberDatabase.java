@@ -192,19 +192,19 @@ public class MemberDatabase {
         ArrayList<CompetitiveResult> results;
         ArrayList<CompetitiveResult> resultsToBeCompared = new ArrayList<>();
 
-        while (resultsToBeCompared.size() < 5) {
 
-            for (CompetitiveMember competitiveMember : actualTeam.getTeamMembers()) {
-                results = competitiveMember.getCompetitiveResults();
 
-                for (CompetitiveResult competitiveResult : results) {
+        for (CompetitiveMember competitiveMember : actualTeam.getTeamMembers()) {
+            results = competitiveMember.getCompetitiveResults();
 
-                    if (competitiveResult.getDiscipline().equals(discipline)) {
-                        resultsToBeCompared.add(competitiveResult);
-                    }
+            for (CompetitiveResult competitiveResult : results) {
+
+                if (competitiveResult.getDiscipline().equals(discipline)) {
+                    resultsToBeCompared.add(competitiveResult);
                 }
             }
         }
+
         Collections.sort(resultsToBeCompared, timeComparator);
 
         return resultsToBeCompared;
