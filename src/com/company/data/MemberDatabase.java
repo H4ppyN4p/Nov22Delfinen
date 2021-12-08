@@ -104,11 +104,10 @@ public class MemberDatabase {
     }
 
     public void deleteMember(String memberType, int index) {
-
-        if (memberType.equals("normal")) {
+        if (memberType.equals("normal") && index-1 <= members.size()) {
             members.remove(index - 1);
             fh.refreshMemberData(members);
-        } else {
+        } else if (index-1 <= competitiveMembers.size()){
             competitiveMembers.remove(index - 1);
             fh.refreshCompMemberData(competitiveMembers);
         }
@@ -116,7 +115,7 @@ public class MemberDatabase {
 
     public void editMember(String memberType, int index, String attribute, String info) {
 
-        if (memberType.equals("normal")) {
+        if (memberType.equals("normal") && index-1 <= members.size()) {
             if (attribute.equals("name")) {
                 members.get(index - 1).setMemberName(info);
             } else if (attribute.equals("age")) {
@@ -136,7 +135,7 @@ public class MemberDatabase {
             }
         }
 
-        if (memberType.equals("competitive")) {
+        if (memberType.equals("competitive") && index-1 <= competitiveMembers.size()) {
             if (attribute.equals("name")) {
                 competitiveMembers.get(index - 1).setMemberName(info);
             } else if (attribute.equals("age")) {
