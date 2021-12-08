@@ -255,31 +255,8 @@ public class UserInterface {
         resultInfo.add(time);
 
         String discipline = "";
-
-        System.out.println("1. Crawl\n2. Butterfly\n3. Back stroke\n4. Breast stroke");
-        System.out.print("Enter the number next to the swimming discipline: ");
-        while (loop) {
-            discipline = scanner.next();
-
-
-            if (discipline.equals("1")) {
-                discipline = "crawl";
-                loop = false;
-            } else if (discipline.equals("2")) {
-                discipline = "butterfly";
-                loop = false;
-            } else if (discipline.equals("3")) {
-                discipline = "back stroke";
-                loop = false;
-            } else if (discipline.equals("4")) {
-                discipline = "breast stroke";
-                loop = false;
-            } else {
-                System.out.println("Type a number to continue");
-            }
-            resultInfo.add(discipline);
-        }
-
+        getDiscipline(scanner, loop, discipline);
+        resultInfo.add(discipline);
 
         System.out.print("Enter date of competition: ");
         String date = scanner.next();
@@ -315,29 +292,7 @@ public class UserInterface {
         boolean loop2 = true;
         String[] disciplineAndTeam = new String[2];
 
-        System.out.println("1. Crawl\n2. Butterfly\n3. Back stroke\n4. Breast stroke");
-        System.out.print("Enter the number next to the swimming discipline: ");
-        while (loop) {
-            discipline = scanner.next();
-
-
-            if (discipline.equals("1")) {
-                discipline = "crawl";
-                loop = false;
-            } else if (discipline.equals("2")) {
-                discipline = "butterfly";
-                loop = false;
-            } else if (discipline.equals("3")) {
-                discipline = "back stroke";
-                loop = false;
-            } else if (discipline.equals("4")) {
-                discipline = "breast stroke";
-                loop = false;
-            } else {
-                System.out.println("Type a number to continue");
-            }
-            disciplineAndTeam[0] = discipline;
-        }
+        disciplineAndTeam[0] = getDiscipline(scanner, loop, discipline);
 
         System.out.print("Enter team ('j' for junior team or 's' for senior team): ");
         while (loop2) {
@@ -373,11 +328,37 @@ public class UserInterface {
         return memberAge;
     }
 
+    private String getDiscipline(Scanner scanner, boolean loop, String discipline) {
+        System.out.println("1. Crawl\n2. Butterfly\n3. Back stroke\n4. Breast stroke");
+        System.out.print("Enter the number next to the swimming discipline: ");
+        while (loop) {
+            discipline = scanner.next();
+
+
+            if (discipline.equals("1")) {
+                discipline = "crawl";
+                loop = false;
+            } else if (discipline.equals("2")) {
+                discipline = "butterfly";
+                loop = false;
+            } else if (discipline.equals("3")) {
+                discipline = "back stroke";
+                loop = false;
+            } else if (discipline.equals("4")) {
+                discipline = "breast stroke";
+                loop = false;
+            } else {
+                System.out.println("Type a number to continue");
+            }
+        }
+        return discipline;
+    }
+
     public boolean isInteger(String str) {
         try {
             Integer.parseInt(str);
             return true;
-        } catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             return false;
         }
     }
