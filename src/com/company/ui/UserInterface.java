@@ -46,15 +46,7 @@ public class UserInterface {
         System.out.print("Enter members age (0-122): ");
         String memberAge = "";
 
-        while (loop) {
-            memberAge = scanner.next();
-
-            if (Integer.parseInt(memberAge) < 0 || Integer.parseInt(memberAge) > 122) {
-                System.out.println("Invalid age, try again");
-            } else {
-                loop = false;
-            }
-        }
+        memberAge = getAge(scanner, loop, memberAge);
         memberInfo.add(memberAge);
 
         boolean go = true;
@@ -170,7 +162,6 @@ public class UserInterface {
         return typeAndIndex;
     }
 
-
     public String[] getAttributeAndInfo(Scanner scanner) {
         String[] attributeAndInfo = new String[2];
         boolean loop1 = true;
@@ -204,17 +195,9 @@ public class UserInterface {
         } else if (attribute.equals("age")) {
             System.out.println("Type in an age between 0-122");
 
-            while (loop2) {
-                info = scanner.next();
-
-                if (Integer.parseInt(info) < 0 || Integer.parseInt(info) > 122) {
-                    System.out.println("Invalid age, try again");
-                } else {
-                    loop2 = false;
-                }
-            }
+            info = getAge(scanner, loop2, info);
         } else {
-            System.out.println("Type in the subcription type you want to change to ('a' for active and 'p' for passive");
+            System.out.println("Type in the subscription type you want to change to ('a' for active and 'p' for passive");
 
             while (loop3) {
                 info = scanner.next();
@@ -258,12 +241,14 @@ public class UserInterface {
         ArrayList<String> resultInfo = new ArrayList<>();
 
         System.out.print("Enter competition name: ");
-        String compName = scanner.next();
+        scanner.nextLine();
+        String compName = scanner.nextLine();
         resultInfo.add(compName);
 
         System.out.print("Enter competition location: ");
-        String compLocation = scanner.next();
+        String compLocation = scanner.nextLine();
         resultInfo.add(compLocation);
+
 
         System.out.print("Enter swimming time in seconds (decimal number allowed, use punctuation and not commas as a separator) : ");
         String time = scanner.next();
@@ -371,5 +356,29 @@ public class UserInterface {
         disciplineAndTeam[1] = team;
 
         return disciplineAndTeam;
+    }
+
+    private String getAge(Scanner scanner, boolean loop, String memberAge) {
+        while (loop) {
+            memberAge = scanner.next();
+
+            if (!isInteger(memberAge)) {
+                System.out.println("Type in a whole number you moron");
+            } else if (Integer.parseInt(memberAge) < 0 || Integer.parseInt(memberAge) > 122) {
+                System.out.println("Invalid age, try again");
+            } else {
+                loop = false;
+            }
+        }
+        return memberAge;
+    }
+
+    public boolean isInteger(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
     }
 }
