@@ -73,35 +73,6 @@ public class MemberDatabase {
         return seniorTeam;
     }
 
-    public ArrayList<Member> getTop5FastestSwimTimesForEachDiscipline() {
-        return members;
-    }
-
-    public ArrayList<Member> getAmountOfJuniorMembers() {
-        return members;
-    }
-
-    public ArrayList<Member> getAmountOfAdultMembers() {
-        return members;
-    }
-
-
-    public ArrayList<Member> getAmountOfSeniorMembers() {
-        return members;
-    }
-
-    public ArrayList<Member> getAmountOfPassiveMembers() {
-        return members;
-    }
-
-    public ArrayList<Member> getAmountOfActiveMembers() {
-        return members;
-    }
-
-    public ArrayList<Member> getAmountOfMembersInRestance() {
-        return members;
-    }
-
     public void deleteMember(String memberType, int index) {
         if (memberType.equals("normal") && index-1 <= members.size()) {
             members.remove(index - 1);

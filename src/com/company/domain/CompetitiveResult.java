@@ -34,26 +34,6 @@ public class CompetitiveResult {
         return discipline;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public String getCompetitionName() {
-        return competitionName;
-    }
-
-    public void setCompetitionName(String competitionName) {
-        this.competitionName = competitionName;
-    }
-
-    public String getCompetitionLocation() {
-        return competitionLocation;
-    }
-
-    public void setCompetitionLocation(String competitionLocation) {
-        this.competitionLocation = competitionLocation;
-    }
-
     public void setCompetitiveNumber(String competitiveNumber) {
         this.competitiveNumber = competitiveNumber;
     }

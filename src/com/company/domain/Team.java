@@ -15,10 +15,6 @@ public class Team {
         this.ageGroup = ageGroup;
     }
 
-    public Team() {
-
-    }
-
     public void addMemberToTeam(ArrayList<CompetitiveMember> competitiveMembers) {
 
         //Sætter en arrayList til at være lig competitiveMembers for at kunne arbejde med dem;
