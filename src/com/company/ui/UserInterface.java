@@ -1,3 +1,4 @@
+// Authors: Lasse, Luay, August og Arboe
 package com.company.ui;
 
 import com.company.data.MemberDatabase;

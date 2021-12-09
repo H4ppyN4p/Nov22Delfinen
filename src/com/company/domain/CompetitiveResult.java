@@ -1,3 +1,4 @@
+// Authors: Luay og Lasse
 package com.company.domain;
 
 public class CompetitiveResult {

@@ -1,3 +1,4 @@
+// Authors: Luay
 package com.company.data;
 
 import com.company.domain.CompetitiveResult;

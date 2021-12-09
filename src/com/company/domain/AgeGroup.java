@@ -1,3 +1,4 @@
+// Authors: Lasse
 package com.company.domain;
 
 public enum AgeGroup {

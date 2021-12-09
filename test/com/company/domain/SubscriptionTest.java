@@ -1,4 +1,4 @@
-/*
+// Authors: August og Arboe
 package com.company.domain;
 
 import org.junit.jupiter.api.Test;
@@ -63,4 +63,4 @@ class SubscriptionTest {
         // Assert
         assertEquals(expected, result);
     }
-}*/
+}

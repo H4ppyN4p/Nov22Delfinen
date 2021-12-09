@@ -1,3 +1,4 @@
+// Authors: Lasse, Luay, August og Arboe
 package com.company.domain;
 
 import java.util.ArrayList;

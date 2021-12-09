@@ -1,3 +1,4 @@
+// Authors: Lasse og Arboe
 package com.company.domain;
 
 public enum SubscriptionType {

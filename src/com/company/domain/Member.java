@@ -1,3 +1,4 @@
+// Authors: Lasse, Luay, Arboe
 package com.company.domain;
 
 import com.company.domain.AgeGroup;
