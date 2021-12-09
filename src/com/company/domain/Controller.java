@@ -28,7 +28,7 @@ public class Controller {
             String input = scanner.next().toLowerCase();
             switch (input) {
                 case "1":
-                    mdb.createMember();
+                    createMember();
                     break;
                 case "2":
                     viewMembers();
@@ -72,8 +72,9 @@ public class Controller {
 
     }
 
-    public ArrayList<String> createMember() {
-        return ui.getMemberInfo(scanner);
+    public void createMember() throws FileNotFoundException {
+        ArrayList<String> info = ui.getMemberInfo(scanner);
+        mdb.createMember(info);
     }
 
     public void viewMembers() {

@@ -29,9 +29,8 @@ public class MemberDatabase {
     }
 
 
-    public void createMember() throws FileNotFoundException {
-        Controller controller = new Controller();
-        ArrayList<String> memberInfo = controller.createMember();
+    public void createMember(ArrayList<String> info) throws FileNotFoundException {
+        ArrayList<String> memberInfo = info;
         if (memberInfo.get(3).equals("n")) {
             Member member = new Member(memberInfo.get(0), memberInfo.get(1), memberInfo.get(2));
             members.add(member);
