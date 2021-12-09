@@ -1,3 +1,5 @@
+// Authors: Arboe & Luay
+
 package com.company.data;
 
 import com.company.domain.CompetitiveMember;
